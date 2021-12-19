@@ -1,6 +1,6 @@
 # Bank_Database
-Using linked list to implement a bank database system.
-The system enables the bunker to:
+Using linked list to implement a bank database system,
+The system enables the banker to:
   * Add new client 
   * Edit client information by id
   * Remove a client by id
