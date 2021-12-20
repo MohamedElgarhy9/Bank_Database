@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1639916013 source:e:\plan2021\diploma\interface projects\banck_database\main.c
+	"Bank_Database.h"
+
+1639916506 e:\plan2021\diploma\interface projects\banck_database\bank_database.h
+	<stdio.h>
+	<stdlib.h>
+
+1639916509 source:e:\plan2021\diploma\interface projects\banck_database\bank_database.c
+	"Bank_Database.h"
+
+1640012591 source:e:\plan2021\diploma\interface projects\bank_database\bank_database.c
+	"Bank_Database.h"
+
+1639916506 e:\plan2021\diploma\interface projects\bank_database\bank_database.h
+	<stdio.h>
+	<stdlib.h>
+
+1640013275 source:e:\plan2021\diploma\interface projects\bank_database\main.c
+	"Bank_Database.h"
+
