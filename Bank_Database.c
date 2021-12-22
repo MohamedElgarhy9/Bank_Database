@@ -4,8 +4,8 @@
 */
 
 #include "Bank_Database.h"
-
 int counter;
+int temp_id; //to store entered id while adding new client, to check if it is already existed or not
 //Function to check if a client id exists or not
 int id_check(client* ptr,int id)
 {
@@ -18,7 +18,8 @@ int id_check(client* ptr,int id)
     {
         if(ptr->id == id)
         {
-            exist = 1;
+            exist = 2;
+            break;
         }
         ptr = ptr->next;
     }
@@ -46,11 +47,16 @@ void add_new_client(client** ptr)
         }
         printf("Try again later!\n");
     }
-    printf("Please enter the type of the client <debit or credit>: ");
-    fflush(stdin);
-    gets(temp->type);
-    printf("please enter id of the new client: ");
-    scanf("%i",&(temp->id));
+    L1: printf("please enter id of the new client: ");
+    scanf("%i",&temp_id);
+    //check if the entered id is already taken
+    if(id_check(*ptr,temp_id) == 2)
+    {
+        printf("this id is already token!\n");
+        goto L1;
+    }
+    //if the entered id is not exist save it in temp->id
+    temp->id = temp_id;
     temp->next = *ptr;
     *ptr = temp;
     counter++;
@@ -70,6 +76,7 @@ void edit_client_information(client* ptr,int id)
         if(ptr->id == id)
         {
             printf("Please enter the name of the client: ");
+            fflush(stdin);
             gets(ptr->name);
             Label:printf("Please enter the cash of the client: ");
             scanf("%lf",&(ptr->cash));
@@ -80,11 +87,8 @@ void edit_client_information(client* ptr,int id)
                 goto Label;
             }
             printf("Please enter the type of the client <debit or credit>: ");
-            fflush(stdin);
-            gets(ptr->type);
-            printf("Please enter the id of the client: ");
             scanf("%i",&(ptr->id));
-            return;
+            break;
         }
         ptr = ptr->next;
     }
@@ -115,7 +119,7 @@ void transfer_cash(client* ptr,int from_client_id,int to_client_id,double money)
             if(money > ptr->cash)
             {
                 printf("The amount of money you want to transfer is greater than the client money");
-                return;
+                break;
             }
             ptr->cash = ptr->cash - money;
             break;
@@ -150,9 +154,8 @@ void print_client_data(client* ptr, int id)
         {
             printf("Clint name: %s\n",ptr->name);
             printf("Client id: %i\n",ptr->id);
-            printf("Client type: %s\n",ptr->type);
-            printf("client cash: %f\n",ptr->cash);
-            return;
+            printf("client cash: %0.2f\n",ptr->cash);
+            break;
         }
         ptr = ptr->next;
     }
@@ -180,7 +183,7 @@ void remove_client_data(client** head_ptr,client* ptr,int id)
         if(ptr->next == '\0')
         {
             printf("There are no clients have the same id!");
-            return;
+            break;
         }
         if(ptr->id == id)
         {
@@ -216,7 +219,7 @@ void check_balance(client* ptr,int id)
         if(ptr->id == id)
         {
             printf("The client balance is: %0.2f\n",ptr->cash);
-            return;
+            break;
         }
         ptr = ptr->next;
     }
@@ -245,10 +248,10 @@ void withdraw(client* ptr, int id, double money)
                 if(ptr->cash < money)
                 {
                     printf("Insufficient balance!\n");
-                    return;
+                    break;
                 }
                 ptr->cash = ptr->cash - money;
-                printf("Your balance now is: %0.2f\n",ptr->cash);
+                printf("the balance of client of id %i now is: %0.2f\n",id,ptr->cash);
             }
             ptr = ptr->next;
         }
@@ -276,7 +279,8 @@ void deposit(client* ptr, int id, double money)
             if(ptr->id == id)
             {
                 ptr->cash = ptr->cash + money;
-                printf("Your balance now is: %0.2f\n",ptr->cash);
+                printf("the balance of client of id %i now is: %0.2f\n",id,ptr->cash);
+                break;
             }
             ptr = ptr->next;
         }
