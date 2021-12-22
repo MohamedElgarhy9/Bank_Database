@@ -8,7 +8,6 @@ typedef struct Bank_client
     char name[50];
     int id;
     double cash;
-    char type[10];
     struct Bank_client* next;
 }client;
 int id_check(client* ptr,int id);

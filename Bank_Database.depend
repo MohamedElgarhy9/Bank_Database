@@ -19,3 +19,13 @@
 1640013275 source:e:\plan2021\diploma\interface projects\bank_database\main.c
 	"Bank_Database.h"
 
+1640211210 source:e:\plan2021\diploma\interface projects\bank_database\remote\bank_database\bank_database.c
+	"Bank_Database.h"
+
+1640212812 e:\plan2021\diploma\interface projects\bank_database\remote\bank_database\bank_database.h
+	<stdio.h>
+	<stdlib.h>
+
+1640211801 source:e:\plan2021\diploma\interface projects\bank_database\remote\bank_database\main.c
+	"Bank_Database.h"
+

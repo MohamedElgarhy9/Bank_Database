@@ -10,19 +10,20 @@ int main()
     int checked_id1;
     int checked_id2;
     client* head = '\0';
+    printf("Please select one of this choices:\n");
+    printf("\t1-Add new client <to select this option press 1>\n");
+    printf("\t2-Edit client data <to select this option press 2>\n");
+    printf("\t3-Transfer money <to select this option press 3>\n");
+    printf("\t4-Print client data <to select this option press 4>\n");
+    printf("\t5-Remove client data <to select this option press 5>\n");
+    printf("\t6-Check balance of a client <to select this option press 6>\n");
+    printf("\t7-Withdraw money <to select this option press 7>\n");
+    printf("\t8-Deposit money <to select his option press 8>\n");
+    printf("\t9-exit <to select this option press 9>\n");
     while(1)
     {
-        printf("Please select one of this choices:\n");
-        printf("\t1-Add new client <to select this option press 1>\n");
-        printf("\t2-Edit client data <to select this option press 2>\n");
-        printf("\t3-Transfer money <to select this option press 3>\n");
-        printf("\t4-Print client data <to select this option press 4>\n");
-        printf("\t5-Remove client data <to select this option press 5>\n");
-        printf("\t6-Check balance of a client <to select this option press 6>\n");
-        printf("\t7-Withdraw money <to select this option press 7>\n");
-        printf("\t8-Deposit money <to select his option press 8>\n");
-        printf("\t9-exit <to select this option press 9>\n");
-        printf("Enter your choice: ");
+        printf("\nEnter your choice: ");
+        fflush(stdin);
         scanf("%c",&choice);
         //Switching on the "choice" to select which function will be excuted
         switch(choice)
@@ -105,7 +106,7 @@ int main()
             break;
         case '6':
             label7: printf("Please enter id of the client you want to check its balance: ");
-            scanf("%i",id);
+            scanf("%i",&id);
             checked_id1 = id_check(head,id);
             //Check if the inserted id is valid or not
             if(checked_id1 == -1)
@@ -161,7 +162,6 @@ int main()
             exit(0);
         default:
             printf("Wrong choice\n\n");
-
         }
     }
     return 0;
