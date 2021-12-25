@@ -6,20 +6,22 @@ int main()
     int id_trans_from;
     int id_trans_to;
     double trans_money;
+    extern int counter;
     //We save the output of id_check function in one of these variables
     int checked_id1;
     int checked_id2;
     client* head = '\0';
     printf("Please select one of this choices:\n");
-    printf("\t1-Add new client <to select this option press 1>\n");
-    printf("\t2-Edit client data <to select this option press 2>\n");
-    printf("\t3-Transfer money <to select this option press 3>\n");
-    printf("\t4-Print client data <to select this option press 4>\n");
-    printf("\t5-Remove client data <to select this option press 5>\n");
+    printf("\t1-Add new client            <to select this option press 1>\n");
+    printf("\t2-Edit client data          <to select this option press 2>\n");
+    printf("\t3-Transfer money            <to select this option press 3>\n");
+    printf("\t4-Print client data         <to select this option press 4>\n");
+    printf("\t5-Remove client data        <to select this option press 5>\n");
     printf("\t6-Check balance of a client <to select this option press 6>\n");
-    printf("\t7-Withdraw money <to select this option press 7>\n");
-    printf("\t8-Deposit money <to select his option press 8>\n");
-    printf("\t9-exit <to select this option press 9>\n");
+    printf("\t7-Withdraw money            <to select this option press 7>\n");
+    printf("\t8-Deposit money             <to select this option press 8>\n");
+    printf("\t9-Print number of clients   <to select this option press 9>\n");
+    printf("\t10-exit                     <to select this option press 10>\n");
     while(1)
     {
         printf("\nEnter your choice: ");
@@ -32,7 +34,7 @@ int main()
             add_new_client(&head);
             break;
         case '2':
-            label1: printf("please enter the id of the client you want to edit its data: ");
+            label1: printf("please enter the id of the client you want to edit his/her data: ");
             scanf("%i",&id);
             checked_id1 = id_check(head,id);
             //Check if the inserted id is valid or not
@@ -159,6 +161,16 @@ int main()
             deposit(head,id,trans_money);
             break;
         case '9':
+            if(counter==0)
+            {
+                printf("There are no clients!\n");
+            }
+            else
+            {
+                printf("No of clients is: %i",counter);
+            }
+            break;
+        case '10':
             exit(0);
         default:
             printf("Wrong choice\n\n");
