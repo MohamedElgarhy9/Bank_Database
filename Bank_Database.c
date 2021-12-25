@@ -4,7 +4,7 @@
 */
 
 #include "Bank_Database.h"
-int counter;
+int counter=0;
 int temp_id; //to store entered id while adding new client, to check if it is already existed or not
 //Function to check if a client id exists or not
 int id_check(client* ptr,int id)
@@ -86,7 +86,7 @@ void edit_client_information(client* ptr,int id)
                 printf("The cash money should be greater than or equal to zero\n");
                 goto Label;
             }
-            printf("Please enter the type of the client <debit or credit>: ");
+            printf("please enter id of the client: ");
             scanf("%i",&(ptr->id));
             break;
         }
@@ -286,6 +286,18 @@ void deposit(client* ptr, int id, double money)
         }
     }
     printf("\n");
+}
+// Function to get number of clients
+int clients_no(client* ptr)
+{
+    if(ptr=='\0')
+    {
+        printf("There are no clients!\n");
+    }
+    else
+    {
+        return counter;
+    }
 }
 
 
