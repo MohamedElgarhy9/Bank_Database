@@ -8,3 +8,4 @@ The system enables the banker to:
   * Check if a client is existed or not by id
   * Check the balance of a client 
   * Withdraw and Deposit
+  * Get no of clients 
